@@ -1,0 +1,38 @@
+<!-- Write a program to perform validation of a form using AngularJS -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="MyApp">
+    <div ng-controller="Angular Controller">
+        <form action="">
+            <label for="name">Enter Name:</label>
+            <input type="text" ng-model="name" name="name" required>
+            
+            <br><br>
+            
+            <label for="age">Enter Age:</label>
+            <input type="number" ng-model="age" name="age" required>
+            
+            <br><br>
+            
+            <label for="email">Enter Email:</label>
+            <input type="email" ng-model="email" name="email" required>
+            
+            <br><br>
+            
+            <label for="passwd">Enter Password:</label>
+            <input type="password" ng-model="passwd" name="passwd" required>
+            
+            <br><br>
+            
+            <input type="submit" name="submit" ng-model="submit_form">
+        </form>
+    </div>
+</body>
+</html>
