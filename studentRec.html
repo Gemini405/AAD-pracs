@@ -1,0 +1,34 @@
+<!-- Create an application for Customer / Students records using AngularJS -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initialscale=1.0">
+    <title>Records in Angular.Js</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <h1>MD College</h1>
+    <div ng-controller="myCtrl">
+        
+        <p ng-init="subjects = ['Maths', 'Physics', 'Chemistry']">List of Subjects:</p>
+        <ol>
+            <li ng-repeat="subject in subjects">{{ subject }}</li>
+        </ol>
+
+        <input type="text" ng-model="new_subject">
+        <button ng-click="addSubject()">Add Subject</button>
+    </div>
+
+    <script>
+        let app = angular.module("myApp", []);
+        app.controller("myCtrl", ($scope) => {
+            $scope.addSubject = () => {
+                $scope.subjects.push($scope.new_subject);
+            }
+        });
+    </script>
+</body>
+</html>
