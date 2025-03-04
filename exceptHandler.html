@@ -1,0 +1,48 @@
+<!-- A program to implement Error Handling in AngularJS -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exceptions Handling</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="my_App">
+    <h1>&radic;Calculator</h1>
+    <div ng-controller="my_Ctrl">
+        <label for="num">Enter a number</label>
+
+        <br><br>
+
+        <input type="number" ng-model="num" name="num">
+        <button ng-click="calculate()">Calculate</button>
+
+        <br><br>
+
+        <p>Result: {{result}}</p>
+        <p>Exceptions: {{error_message}}</p>
+
+    </div>
+    <script>
+        let app = angular.module("my_App", []);
+        app.controller("my_Ctrl", ($scope, $exceptionHandler) => {
+            $scope.calculate = () => {
+                try {
+                    if ($scope.num < 0) {
+                        $scope.result = "Not Possible";
+                        throw new Error("Number must be positive!");
+                    }
+                    $scope.result = Math.sqrt($scope.num);
+                    $scope.error_message = "None";
+                } catch (e) {
+                    $scope.error_message = e.message;
+                    $exceptionHandler(e);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
